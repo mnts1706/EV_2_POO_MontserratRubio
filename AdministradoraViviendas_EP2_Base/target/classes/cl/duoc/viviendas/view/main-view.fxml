@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cl.duoc.viviendas.controller.MainController">
+
+    <top>
+        <VBox spacing="8" style="-fx-background-color: #24476A; -fx-padding: 20;">
+            <Label text="ADMINISTRADORA DE VIVIENDAS"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Sistema de gestión de propiedades"
+                   style="-fx-font-size: 13px; -fx-text-fill: white;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" style="-fx-padding: 20;">
+
+            <Label text="REGISTRO DE VIVIENDAS"
+                   style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="12" vgap="12">
+
+                <Label text="Tipo de vivienda:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="cmbTipo"
+                          promptText="Seleccione tipo"
+                          onAction="#cambiarTipo"
+                          prefWidth="200"
+                          GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Código:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="txtCodigo"
+                           promptText="Ej: PROP-D001"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Superficie (m²):" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="txtSuperficie"
+                           promptText="Entre 20 y 500"
+                           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Habitaciones:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextField fx:id="txtHabitaciones"
+                           promptText="Número de habitaciones"
+                           GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Piso:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <TextField fx:id="txtPiso"
+                           promptText="Número de piso"
+                           GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                <Label text="Gasto común al día:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                <CheckBox fx:id="chkGastoComun"
+                          text="Sí"
+                          GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                <Label text="Estacionamiento:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                <CheckBox fx:id="chkEstacionamiento"
+                          text="Asignar estacionamiento"
+                          GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+                <Label text="Tiene patio:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                <CheckBox fx:id="chkPatio"
+                          text="Sí"
+                          GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+            </GridPane>
+
+            <HBox spacing="12">
+                <Button text="Registrar vivienda"
+                        onAction="#registrarVivienda"
+                        style="-fx-background-color: #287A4B; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="Eliminar seleccionada"
+                        onAction="#eliminarVivienda"
+                        style="-fx-background-color: #B63C3C; -fx-text-fill: white;"/>
+            </HBox>
+
+            <Separator/>
+
+            <Label text="VIVIENDAS REGISTRADAS"
+                   style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+
+            <TableView fx:id="tablaViviendas" VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="colTipo" text="Tipo" prefWidth="110"/>
+                    <TableColumn fx:id="colCodigo" text="Código" prefWidth="120"/>
+                    <TableColumn fx:id="colSuperficie" text="Superficie" prefWidth="100"/>
+                    <TableColumn fx:id="colHabitaciones" text="Habitaciones" prefWidth="100"/>
+                    <TableColumn fx:id="colDatosEspecificos" text="Datos específicos" prefWidth="260"/>
+                    <TableColumn fx:id="colCosto" text="Costo de arriendo" prefWidth="130"/>
+                </columns>
+
+            </TableView>
+
+            <Label fx:id="lblMensaje"
+                   text="Sistema listo."
+                   wrapText="true"
+                   style="-fx-text-fill: #287A4B; -fx-font-weight: bold;"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>
